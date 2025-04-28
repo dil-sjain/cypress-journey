@@ -1,0 +1,9 @@
+{
+  "sampleData": {
+    "id": 1,
+    "name": "Sample Item",
+    "description": "This is a sample item used for testing.",
+    "price": 19.99,
+    "available": true
+  }
+}
