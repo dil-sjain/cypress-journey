@@ -8,4 +8,5 @@ describe('Sample Test Suite', () => {
         cy.get('button#sample-button').click(); // Replace with the actual button selector
         cy.get('div#result').should('contain', 'Action performed'); // Replace with expected outcome
     });
+    
 });
