@@ -1,5 +1,5 @@
 {
-  "name": "cypress-framework",
+  "name": "automation",
   "version": "1.0.0",
   "description": "A framework for testing applications using Cypress",
   "main": "index.js",
@@ -7,10 +7,18 @@
     "test": "cypress run",
     "open": "cypress open"
   },
-  "dependencies": {
-    "cypress": "^12.0.0"
+  "devDependencies": {
+    "cypress": "^14.3.2",
+    "cypress-xpath": "^2.0.1"
   },
-  "devDependencies": {},
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dil-sjain/cypress-journey.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dil-sjain/cypress-journey/issues"
+  },
+  "homepage": "https://github.com/dil-sjain/cypress-journey#readme"
 }
