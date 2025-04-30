@@ -1,0 +1,9 @@
+{
+    "user": {
+        "expected_login_name":"Hello, Satish"
+    },
+    "search":{
+        "search_text":"mobiles"
+        
+    }
+}
