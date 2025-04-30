@@ -14,6 +14,7 @@ describe('Amazon Test Suite', () => {
       });
     it('Login Page', () => {
         Cypress.config('defaultCommandTimeout', 60000);
+     
         cy.contains('Hello, Simran').should('be.visible');
     });
 
