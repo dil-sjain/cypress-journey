@@ -1,9 +1,6 @@
 {
-  "sampleData": {
-    "id": 1,
-    "name": "Sample Item",
-    "description": "This is a sample item used for testing.",
-    "price": 19.99,
-    "available": true
-  }
+  "product":"ps5",
+  "product1":"ps5",
+  "product2":"PS5",
+  "invalidString":"paris hotel apple dolphin"
 }
