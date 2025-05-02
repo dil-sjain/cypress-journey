@@ -3,7 +3,15 @@
         "expected_login_name":"Hello, Satish"
     },
     "search":{
-        "search_text":"mobiles"
-        
+        "search_text":"mobiles",
+        "min_price_slider":"80",
+        "max_price_slider":"120",
+        "expected_min_price":500,
+        "expected_max_price":150000,
+        "filter_brand":"realme"
+    },
+    "product":{
+        "product_name":"Apple iPhone 15 (128 GB) - Green",
+        "product_price":58999
     }
 }
