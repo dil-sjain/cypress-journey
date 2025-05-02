@@ -1,4 +1,4 @@
-import AddToCart from "./shop";
+import AddToCart from "../pageobject/shop";
 
 describe('amazon shopping cart', () => {
     const addtocart = new AddToCart();
