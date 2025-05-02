@@ -7,10 +7,10 @@
     "test": "cypress run",
     "open": "cypress open"
   },
-  "dependencies": {
-    "cypress": "^12.0.0"
+  "devDependencies": {
+    "cypress": "^14.3.2",
+    "cypress-xpath": "^2.0.1"
   },
-  "devDependencies": {},
   "author": "",
   "license": "MIT"
 }

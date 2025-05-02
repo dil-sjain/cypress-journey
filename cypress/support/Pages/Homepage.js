@@ -1,17 +1,23 @@
-class Homepage{
-    Login(username,password){
-        cy.get("#nav-link-accountList-nav-line-1").click()
-        cy.get("#ap_email_login").type(username)
-        cy.get(".a-button-input").click()
-        cy.get("#ap_password").type(password)
-        cy.get("#signInSubmit").click()
-    }
-     
+class Homepage {
+  elements = {
+    accountListLink: () => cy.get("#nav-link-accountList-nav-line-1"),
+    emailInput: () => cy.get("#ap_email_login"),
+    continueButton: () => cy.get(".a-button-input"),
+    passwordInput: () => cy.get("#ap_password"),
+    signInButton: () => cy.get("#signInSubmit"),
+  };
 
-verifyuser(){
-    cy.get("#nav-link-accountList-nav-line-1").should("contain.text", "Hello, Rahul");
+  Login(username, password) {
+    this.elements.accountListLink().click();
+    this.elements.emailInput().type(username);
+    this.elements.continueButton().click();
+    this.elements.passwordInput().type(password);
+    this.elements.signInButton().click();
+  }
+
+  verifyuser(verifyusername) {
+    this.elements.accountListLink().should("contain.text", verifyusername);
+  }
 }
 
-
-}
 export default Homepage;
