@@ -4,13 +4,17 @@
   "description": "A framework for testing applications using Cypress",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run",
-    "open": "cypress open"
+    "test"              : "cypress run",
+    "open"              : "cypress open",
+    "cy:tests:CHROME"   : "cypress run --headed --browser chrome",
+    "cy:tests:FIREFOX"  : "cypress run --headed --browser firefox",
+    "cy:tests:EDGE"     : "cypress run --headed --browser edge",
+    "cy:tests"          : "cypress run --headed"
   },
   "dependencies": {
-    "cypress": "^12.0.0"
+    "cypress": "^14.3.2",
+    "cypress-mochawesome-reporter": "^3.8.2"
   },
-  "devDependencies": {},
   "author": "",
   "license": "MIT"
 }
