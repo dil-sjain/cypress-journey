@@ -29,12 +29,17 @@ describe('Assignment 1', () => {
         const searchText = this.assignData.search.search_text; 
         const expectedText = `"${this.assignData.search.search_text}"`;
         searchPage.enterSearchText(searchText);
+
+        //verify auto-suggestions
         searchPage.getSuggestionContainer().should('be.visible');
         searchPage.getSuggestionContainer().find(searchPage.locators.suggestion_list).should('contain', searchText);
         searchPage.clickSearchButton();
+
+        //verify searched text and product list
         searchPage.getSearchPage().should('have.text', expectedText);;
         searchPage.getSearchList().should('have.length.gte', 15);
 
+        //verify slider filter 
         const expected_min_price =  this.assignData.search.expected_min_price;
         const expected_max_price =  this.assignData.search.expected_max_price;
         cy.log(`Expected min price: ${expected_min_price}`);
@@ -42,17 +47,18 @@ describe('Assignment 1', () => {
         searchPage.setPriceRange(this.assignData.search.min_price_slider, this.assignData.search.max_price_slider);  
         cy.screenshot('price-range-slider');
         searchPage.getProductPrices().each(($price) => {
-        
         const price = parseInt($price.text().replace(/,/g, ''), 10);
         expect(price).to.be.gte(expected_min_price);
         expect(price).to.be.lte(expected_max_price);
         })
         const brand = this.assignData.search.filter_brand;
+
+        //verify brand filter - checkbox
         searchPage.selectBrand(brand);
         searchPage.validateProductsContainBrand(brand);
 
     })
-    it('Verify specific product', function() {
+    it('Verify specific product search', function() {
         cy.login(email, password);
         const product_name = this.assignData.product.product_name;
         const expected_product_price = this.assignData.product.product_price;
