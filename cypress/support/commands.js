@@ -1,1 +1,2 @@
-// This file is intentionally left blank.
+/// <reference types="Cypress" /> 
+/// <reference types="cypress-xpath" />
