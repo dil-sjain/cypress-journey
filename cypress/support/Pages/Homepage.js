@@ -20,4 +20,4 @@ class Homepage {
   }
 }
 
-export default Homepage;
+export default Homepage; 

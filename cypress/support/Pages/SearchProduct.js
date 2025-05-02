@@ -14,7 +14,7 @@ class SearchProduct {
   };
 
   findproduct(product) {
-    this.elements.searchBox().type(product);
+    this.elements.searchBox().type(product); 
   }
 
   SelectSuggestedProduct() {

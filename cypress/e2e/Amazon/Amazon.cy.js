@@ -46,7 +46,7 @@ describe("Open Amazon", () => {
     search.findproduct(data.product);
     search.SelectSuggestedProduct();
 
-    search.selectItem(data.product);
+    search.selectItem(data.product); 
     search.selectSpecs();
     search.verifyMemorySize(data.memorysize);
    search.AddSetUpService();
