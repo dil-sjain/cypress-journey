@@ -1,0 +1,13 @@
+{
+  "validCred": {
+    "email": "amit007@gmail.com",
+    "password": "Anan#009"
+  },
+  "invalidCred": {
+    "email": "amit007@gmail.com",
+    "password": "wrongpassword"
+  },
+  "unregisterdUser": {
+    "email": "unregisteredemail@example.com"
+  }
+}
