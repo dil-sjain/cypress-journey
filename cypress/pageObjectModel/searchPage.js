@@ -4,6 +4,10 @@ class SearchPage {
     addToCartButton = '#a-autoid-1-announce';
     goToCartButton = 'a.a-button-text';
     shoppingCartTitle = 'h2';
+    proceedToPay ="input[name=proceedToRetailCheckout]";
+    paymentPage='.a-box-group';
+    continueBtn = '[data-testid="secondary-continue-button"]';
+
     searchProduct(productName) {
       cy.get(this.searchInput).type(productName);
       cy.get(this.searchButton).click();
@@ -18,6 +22,16 @@ class SearchPage {
   
     verifyCartTitle(expectedTitle) {
       cy.contains(this.shoppingCartTitle, expectedTitle).should('be.visible');
+    }
+    verifyProceedToPay(){
+      cy.get(this.proceedToPay).should('be.visible').click();
+    }
+    verifyPaymentPage(){
+      cy.get(this.paymentPage, { timeout: 10000 }).should('exist');
+
+    }
+    clickContinueBtn(){
+      cy.get(this.continueBtn).click()
     }
   }
   export default new SearchPage();

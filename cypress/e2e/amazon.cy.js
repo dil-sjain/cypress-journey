@@ -21,5 +21,8 @@ describe("Navigate to amazpn website and perform some action",()=>{
     searchPage.addToCart();
     searchPage.goToCart();
     searchPage.verifyCartTitle(expectedCartTitle);
+    searchPage.verifyProceedToPay();
+    searchPage.clickContinueBtn();
+    searchPage.verifyPaymentPage();
     })
 })
