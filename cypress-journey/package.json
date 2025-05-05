@@ -8,9 +8,9 @@
     "open": "cypress open"
   },
   "dependencies": {
-    "cypress": "^12.0.0"
+    "cypress": "^12.0.0",
+    "node": "^22.15.0"
   },
-  "devDependencies": {},
   "author": "",
   "license": "MIT"
 }
