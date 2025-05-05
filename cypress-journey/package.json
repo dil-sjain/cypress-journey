@@ -8,10 +8,8 @@
     "open": "cypress open"
   },
   "dependencies": {
-    "cypress": "^12.0.0"
-  },
-  "devDependencies": {
-    "cypress-xpath": "^2.0.1"
+    "cypress": "^12.0.0",
+    "node": "^22.15.0"
   },
   "author": "",
   "license": "MIT"
