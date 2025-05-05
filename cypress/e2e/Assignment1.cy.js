@@ -6,9 +6,9 @@ describe('Assignment 1 Amazon Login', () => {
 
     it('Amazon Login ', () => {
         cy.get('#nav-link-accountList-nav-line-1').click();
-        cy.get('#ap_email_login').type(9307056667);
+        cy.get('#ap_email_login').type('9307056667');//Enter your email or phone number
         cy.get('#continue').click();
-        cy.get('#ap_password').type('Ankita@54321!');
+        cy.get('#ap_password').type('Ankita@54321!');//Enter your password
         cy.get('#signInSubmit').click();
         
     });
@@ -40,6 +40,10 @@ describe('Assignment 1 Amazon Login', () => {
         cy.get('#a-autoid-1-announce').contains('Add to cart').click();
         // cy.get('#a-autoid-1-announce').click();
         
+    });
+    it('Go to Cart', () => {
+        cy.get('#nav-cart-count-container').click();
+        //cy.get('.a-size-medium.sc-product-title.a-text-bold').should('exist');
     });
     
 });
