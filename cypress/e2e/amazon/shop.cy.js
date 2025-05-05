@@ -1,25 +1,34 @@
-describe('amazon cart shopping',()=>{
-    beforeEach(() => {
-        cy.visit('https://www.amazon.in');
-        cy.visit('https://amazon.in')
-        cy.get('#nav-link-accountList-nav-line-1').click();
-        cy.wait(2000);
-        cy.get('#ap_email_login').type('7310623832');
-        cy.get('.a-button-input').click();
-        cy.get('#ap_password').type('Change@63999');
-        cy.get('#signInSubmit').click();
+import AddToCart from "../pageobject/shop";
+
+describe('amazon shopping cart', () => {
+    const addtocart = new AddToCart();
+
+    beforeEach(function () {
+        cy.fixture('example').then((data) => {
+            this.data = data;
+        });
+
+        cy.visit(Cypress.env("url"));
+        const username = Cypress.env("username");
+        const password = Cypress.env("password");
+        addtocart.login(username, password);
     });
 
-    it('Login to amazon account',()=>{
-        cy.get('#nav-logo-sprites').should('be.visible');//verify logo is visible after successful login
+    it('Login to amazon account', () => {
+        cy.get('#nav-logo-sprites').should('be.visible');
     });
-    it('add to cart',()=>{
-        cy.get('.nav-search-field').type('ps5')
-        cy.get('#nav-search-submit-button').click();
-        cy.wait(2000)
-        cy.get('h2[aria-label="Sony PlayStation5 Gaming Console (Slim)"]').parents("a").invoke("removeAttr","target").click()
-        cy.wait(2000)
-        cy.get('#add-to-cart-button').click();
-        cy.wait(2000);
-    })
+    it('add to cart', function () {
+        addtocart.searchProduct(this.data.product);
+        addtocart.openAndAddtoCart();
+    });
+
+    it('Search results are same irrespective of case sensitivity', function () {
+        addtocart.searchProduct(this.data.product1);
+        addtocart.searchCapsOfAndCapsOn();
+    });
+    it('invalid result search', function () {
+        const invalidKeyword = Cypress.env("invalidKeyword");
+        addtocart.searchProduct(invalidKeyword);
+        addtocart.invalidResultSearch();
+    });
 });
