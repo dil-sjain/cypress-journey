@@ -9,6 +9,4 @@ Cypress.Commands.add('loginInToApplication', (username, password) => {
     loginPage.enterUsername(username);
     loginPage.enterPassword(password);
     loginPage.clickOnLoginButton();
-
-    WaitUtils.waitForGivenTime(2);
 });

@@ -1,9 +1,11 @@
+import '../support/commands';
+
 describe('Sample Test Suite', () => {
 
     before(() => {
         cy.loginInToApplication(
-            Cypress.env('TPM_SUPERUSER'),
-            Cypress.env('TPM_PASSWORD'),
+            Cypress.env('username'),
+            Cypress.env('password'),
         );
     });
 
