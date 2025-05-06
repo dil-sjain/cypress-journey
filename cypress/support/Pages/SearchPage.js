@@ -13,6 +13,8 @@ class SearchPage {
     cy.get('[data-component-type="s-search-result"]')
       .first()
       .find("img")
+      .parents("a")
+      .invoke("removeAttr", "target")
       .click();
   }
 }

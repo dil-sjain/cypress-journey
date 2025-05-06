@@ -1,13 +1,15 @@
 import LoginPage from "../support/Pages/LoginPage";
 import SearchPage from "../support/Pages/SearchPage";
+import CartPage from "../support/Pages/CartPage";
 
-let data, loginPage, searchPage;
+let data, loginPage, searchPage, cartPage;
 describe("Amazon Test Suite", () => {
   before(() => {
     cy.fixture("config").then(function (fixtureData) {
       data = fixtureData;
       loginPage = new LoginPage();
       searchPage = new SearchPage();
+      cartPage = new CartPage();
     });
   });
   beforeEach(() => {
@@ -16,7 +18,7 @@ describe("Amazon Test Suite", () => {
     });
     cy.clearCookies();
     loginPage.goTo(data.url);
-    loginPage.login(data.username, data.password);
+    loginPage.login(Cypress.env("username"), Cypress.env("password"));
   });
   it("Login Page", () => {
     cy.contains("Hello, Simran").should("be.visible");
@@ -26,5 +28,8 @@ describe("Amazon Test Suite", () => {
     searchPage.searchProduct(data.productName);
     searchPage.assertResultAndTitle(data.searchTitle);
     searchPage.selectProduct();
+    cartPage.addOfferings();
+    cartPage.addToCart();
+
   });
 });
