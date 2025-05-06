@@ -1,6 +1,13 @@
 describe('Sample Test Suite', () => {
+
+    before(() => {
+        cy.loginInToApplication(
+            Cypress.env('TPM_SUPERUSER'),
+            Cypress.env('TPM_PASSWORD'),
+        );
+    });
+
     it('should visit the homepage', () => {
-        cy.visit('http://localhost:3000'); // Replace with your application's URL
         cy.contains('Welcome'); // Replace with an expected element on your homepage
     });
 
