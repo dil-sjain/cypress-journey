@@ -16,7 +16,6 @@ beforeEach(() => {
 
   // const url= cypress.env('amazonUrl');
   // cy.visit()
-
   homepage.Login(data.username, data.password);
 });
 
