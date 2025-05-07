@@ -22,7 +22,6 @@ describe("Amazon Login and Search", () => {
     it("action performed for iphone 16 in the web page",() => {
         // cy.log('username: ' + username)
         // cy.loginInToApplication(username, password);
-    
         const productName = productData.productName;
         const expectedCartTitle = productData.expectedCartTitle;
         searchPage.searchProduct(productName);
@@ -32,6 +31,7 @@ describe("Amazon Login and Search", () => {
         searchPage.shoppingCartTitle().should('have.text', expectedCartTitle);
         searchPage.proceedToPay();
         searchPage.continueBtn();
-        // searchPage.paymentPage();
+        //searchPage.paymentPage();
     })
+
 })
