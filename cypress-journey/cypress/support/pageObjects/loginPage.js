@@ -2,9 +2,13 @@
 
 class loginPage {
   webLocators = {
-    username: () => cy.get('#loginID'),
-    password: () => cy.get('#pw'),
-    loginButton: () => cy.get('#btnSubmit'),
+    username: () => cy.get("#ap_email_login"),
+    password: () => cy.get("#ap_password"),
+    loginButton: () => cy.get("#signInSubmit"),
+    continueButton: () => cy.get(".a-button-input"),
+    errorMessage: () => cy.get("#auth-error-message-box"),
+    askToRegisterMessage: () =>
+      cy.get("#intent-confirmation-container").find("h1"),
   };
 
   // Actions
@@ -18,5 +22,16 @@ class loginPage {
   clickOnLoginButton = () => {
     this.webLocators.loginButton().click();
   };
+  clickOnContinueButton = () => {
+    this.webLocators.continueButton().click();
+  };
+  validateErrorMessage(expectedText) {
+    this.webLocators.errorMessage().should("contain.text", expectedText);
+  }
+  validateAskToRegisterMessage(expectedText) {
+    this.webLocators
+      .askToRegisterMessage()
+      .should("contain.text", expectedText);
+  }
 }
 export default new loginPage();
