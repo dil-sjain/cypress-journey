@@ -6,8 +6,6 @@ import '../support/commands';
 import productData from '../fixtures/productData.json';
 
 //const { username, password } = Cypress.env();
-
-
 describe("Amazon Login and Search", () => {
     let productData;
 
@@ -36,6 +34,4 @@ describe("Amazon Login and Search", () => {
         searchPage.continueBtn();
         // searchPage.paymentPage();
     })
-    
-  
 })

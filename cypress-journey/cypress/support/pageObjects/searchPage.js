@@ -40,8 +40,7 @@ class searchPage {
     };
     paymentPage() {
         return this.webLocators.paymentPage();
-    };
-    
+    };  
 }
 
 export default new searchPage();
