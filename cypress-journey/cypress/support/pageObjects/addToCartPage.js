@@ -1,11 +1,15 @@
 class addToCartPage {
-    webLocators = {
-      //formControl: () => cy.get('.form-control'),
-    };
+  elements = {
+    addToCartButton: () => cy.get("#a-autoid-1-announce"),
+    addChargerToCart: () => cy.get("#a-autoid-3-announce"),
+  };
 
-    // getSearchInput() {
-    //     return this.webLocators.formControl();
-    // }
+  addToCart() {
+    this.elements.addToCartButton().click();
+  }
+
+  addcharger() {
+    this.elements.addChargerToCart().click();
+  }
 }
-
-export default new addToCartPage();
+export default addToCartPage;
