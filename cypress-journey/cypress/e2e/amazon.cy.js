@@ -8,20 +8,26 @@ describe('amazon shopping cart', () => {
     const searchpage = new searchPage();
     const cartpage = new CartPage();
 
-
-    beforeEach(function () {
+    before(function () {
         cy.fixture('search').then((data) => {
             this.data = data;
         });
-        cy.clearCookies()
+    });
+
+    beforeEach(function () {
+        cy.clearCookies();
         cy.loginInToApplication(Cypress.env('username'), Cypress.env('password'));
     });
+
 
     it('search product and add to cart', function () {
         searchpage.searchProduct(this.data.product1);
         addtocart.openAndAddtoCart();
     });
-
+    it('Search results are same irrespective of case sensitivity', function () {
+        searchpage.searchProduct(this.data.product1);
+        searchpage.searchCapsOfAndCapsOn();
+    });
     it('cart validation - check cart count increases', function () {
         cartpage.getInitialCartCount().then((initialCount) => {
             searchpage.searchProduct(this.data.watch);
@@ -31,15 +37,15 @@ describe('amazon shopping cart', () => {
             cartpage.proceedToCheckout();
             cartpage.verifyAddress(this.data.address);
             cartpage.verifyTotalAmount(this.data.totalamount);
+            cartpage.removeItemFromCart()
+            cartpage.saveForLater()
+
         });
-    });
-    it('Search results are same irrespective of case sensitivity', function () {
-        searchpage.searchProduct(this.data.product1);
-        searchpage.searchCapsOfAndCapsOn();
     });
     it('invalid result search', function () {
         const invalidKeyword = Cypress.env("invalidKeyword");
         searchpage.searchProduct(invalidKeyword);
         addtocart.invalidResultSearch();
     });
+
 });
