@@ -8,26 +8,29 @@ describe('amazon shopping cart', () => {
     const searchpage = new searchPage();
     const cartpage = new CartPage();
 
-    before(function () {
+    beforeEach(function () {
         cy.fixture('search').then((data) => {
             this.data = data;
         });
+        cy.clearAllCookies();
+        cy.clearLocalStorage();
+        cy.session('userSession', () => {
+            cy.loginInToApplication(Cypress.env('uname'), Cypress.env('password'));
+        });
+        cy.visit('https://www.amazon.in');
+        cy.get('.nav-search-field input', { timeout: 10000 }).should('be.visible');
     });
-
-    beforeEach(function () {
-        cy.clearCookies();
-        cy.loginInToApplication(Cypress.env('username'), Cypress.env('password'));
-    });
-
 
     it('search product and add to cart', function () {
         searchpage.searchProduct(this.data.product1);
         addtocart.openAndAddtoCart();
     });
+
     it('Search results are same irrespective of case sensitivity', function () {
         searchpage.searchProduct(this.data.product1);
         searchpage.searchCapsOfAndCapsOn();
     });
+
     it('cart validation - check cart count increases', function () {
         cartpage.getInitialCartCount().then((initialCount) => {
             searchpage.searchProduct(this.data.watch);
@@ -37,15 +40,20 @@ describe('amazon shopping cart', () => {
             cartpage.proceedToCheckout();
             cartpage.verifyAddress(this.data.address);
             cartpage.verifyTotalAmount(this.data.totalamount);
-            cartpage.removeItemFromCart()
-            cartpage.saveForLater()
-
+            cartpage.removeItemFromCart();
+            cartpage.saveForLater();
         });
     });
+
     it('invalid result search', function () {
-        const invalidKeyword = Cypress.env("invalidKeyword");
-        searchpage.searchProduct(invalidKeyword);
+        searchpage.searchProduct(this.data.invalidkeyword);
         addtocart.invalidResultSearch();
     });
 
+    it("multiItems checkout", function () {
+        searchpage.searchProduct(this.data.multiItems);
+        searchpage.clickonsearch();
+        searchpage.selectbrand();
+        searchpage.addmultipleitem();
+    });
 });

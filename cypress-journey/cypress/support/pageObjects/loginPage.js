@@ -13,32 +13,22 @@ class LoginPage {
   // Actions
 
   // Click on the Account link to navigate to the login page
-  clickAccountLink() {
+  clickOnAccountlink() {
     this.webLocators.accountLink().click();
   }
 
-  enterUsername(username) {
+  enterUsername = (username) => {
     this.webLocators.username().type(username);
-  }
-
-  clickContinueButton() {
+  };
+  clickOncontinueButton = (continueButton) => {
     this.webLocators.continueButton().click();
-  }
-
-  enterPassword(password) {
+  };
+  enterPassword = (password) => {
     this.webLocators.password().type(password);
-  }
-
-  clickSignInButton() {
+  };
+  clickOnLoginButton = () => {
     this.webLocators.signInButton().click();
-  }
-
-  login(username, password) {
-    this.clickAccountLink();        
-    this.clickContinueButton();    
-    this.enterPassword(password);  
-    this.clickSignInButton();    
-  }
+  };
 }
 
 export default LoginPage;

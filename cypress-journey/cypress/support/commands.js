@@ -3,13 +3,13 @@ const loginpage= new loginPage();
 
 Cypress.Commands.add('loginInToApplication', (username, password) => {
     cy.clearCookies();
-
     cy.log('Logging in', Cypress.env('BASE_URL'));
 
     cy.visit(Cypress.env('BASE_URL'), { timeout: 10000 });
-    loginpage.clickAccountLink();
+    loginpage.clickOnAccountlink();
     loginpage.enterUsername(username);
-    loginpage.clickContinueButton();
+    loginpage.clickOncontinueButton();
     loginpage.enterPassword(password);
-    loginpage.clickSignInButton();
+    
+    loginpage.clickOnLoginButton();
 });

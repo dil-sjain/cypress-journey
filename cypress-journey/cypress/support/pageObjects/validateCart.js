@@ -47,6 +47,7 @@ class CartPage {
     this.elements.removeItem().click();
 
   }
+  
   saveForLater() {
     this.elements.saveforlater().click();
   }
