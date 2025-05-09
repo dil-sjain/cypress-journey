@@ -1,12 +1,15 @@
 import loginPage from "../support/pageObjects/loginPage";
+const loginpage= new loginPage();
 
 Cypress.Commands.add('loginInToApplication', (username, password) => {
-    cy.log('Logging in', Cypress.env('BASE_URL'));
     cy.clearCookies();
+    cy.log('Logging in', Cypress.env('BASE_URL'));
 
     cy.visit(Cypress.env('BASE_URL'), { timeout: 10000 });
-
-    loginPage.enterUsername(username);
-    loginPage.enterPassword(password);
-    loginPage.clickOnLoginButton();
+    loginpage.clickOnAccountlink();
+    loginpage.enterUsername(username);
+    loginpage.clickOncontinueButton();
+    loginpage.enterPassword(password);
+    
+    loginpage.clickOnLoginButton();
 });
