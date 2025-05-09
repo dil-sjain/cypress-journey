@@ -22,12 +22,12 @@ describe('amazon shopping cart', () => {
     });
 
     it('search product and add to cart', function () {
-        searchpage.searchProduct(this.data.product1);
+        searchpage.searchProduct(this.data.product);
         addtocart.openAndAddtoCart();
     });
 
     it('Search results are same irrespective of case sensitivity', function () {
-        searchpage.searchProduct(this.data.product1);
+        searchpage.searchProduct(this.data.product);
         searchpage.searchCapsOfAndCapsOn();
     });
 
