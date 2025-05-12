@@ -35,7 +35,7 @@ describe('amazon shopping cart', () => {
         addtocart.openAndAddtoCart();
     });
 
-    it.skip('Search results are same irrespective of case sensitivity', function () {
+    it('Search results are same irrespective of case sensitivity', function () {
         cy.intercept('POST', '**/com.amazon.csm.csa.prod', {
             statusCode: 200,
             body: {
