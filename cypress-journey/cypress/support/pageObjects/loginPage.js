@@ -1,5 +1,4 @@
 // Description: This file contains the page objects for the login page.
-
 class loginPage {
   webLocators = {
     username: () => cy.get("#ap_email_login"),

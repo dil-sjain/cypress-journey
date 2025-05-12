@@ -1,0 +1,14 @@
+{
+  "laptopSearches": [
+    {
+      "searchKeyword": "laptop",
+      "filters": {
+        "Brands": "Dell",
+        "Processor Type": "Intel Core i5",
+        "HDD Size": "500 - 999 GB",
+        "Hard Drive Type": "SSD"
+      },
+      "expectedResultContains": "Dell"
+    }
+  ]
+}

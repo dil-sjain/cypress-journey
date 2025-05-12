@@ -1,5 +1,11 @@
 {
-  "validSearches": ["iPhone 13", "Samsung Galaxy", "Laptop"],
-  "invalidSearches": ["asdkjasdkjas", "#######"],
+  "validSearches": [
+    "iPhone 13",
+    "Samsung Galaxy"
+  ],
+  "invalidSearches": [
+    "asdkjasdkjas",
+    "#######"
+  ],
   "emptySearch": "{backspace}"
 }
