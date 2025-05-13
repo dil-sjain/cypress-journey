@@ -1,4 +1,5 @@
 {
-    "productName": "iphone 16",
-    "expectedCartTitle": "\n        \n        Shopping Cart\n    "
+    "productName": "Apple iPhone 15 (128 GB) - Green",
+    "expectedCartTitle": "\n        \n        Shopping Cart\n    ",
+    "expected_initial_count": 0
 }

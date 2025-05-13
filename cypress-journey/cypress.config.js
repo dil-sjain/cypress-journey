@@ -5,6 +5,8 @@ module.exports = defineConfig({
   viewportWidth: 1280,
   viewportHeight: 720,
   fixturesFolder: 'cypress/fixtures',
+  video: true,
+  videosFolder: 'cypress/videos',
 
   env: {
     username: process.env.username1,
