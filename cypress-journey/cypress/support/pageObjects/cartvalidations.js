@@ -13,9 +13,17 @@ class cartValidations {
       cy.get(
         "td.a-color-base.a-size-medium.a-text-right.grand-total-price.aok-nowrap.a-text-bold.a-nowrap"
       ),
-      removeItem: ()=> cy.get("button[aria-label='Delete Samsung Original 45W Type-C Travel Adaptor with Cable, Black'] span[class='a-icon a-icon-small-trash']"),
-      verifytotalItem: ()=> cy.get("#sc-subtotal-label-activecart"),
-      clickOnSaveforlater : () => cy.get("div[class='a-row sc-action-links'] span[class='a-size-small sc-action-save-for-later'] span[class='a-declarative']").contains("Save for later"),
+    removeItem: () =>
+      cy.get(
+        "button[aria-label='Delete Samsung Original 45W Type-C Travel Adaptor with Cable, Black'] span[class='a-icon a-icon-small-trash']"
+      ),
+    verifytotalItem: () => cy.get("#sc-subtotal-label-activecart"),
+    clickOnSaveforlater: () =>
+      cy
+        .get(
+          "div[class='a-row sc-action-links'] span[class='a-size-small sc-action-save-for-later'] span[class='a-declarative']"
+        )
+        .contains("Save for later"),
   };
 
   gotoCart() {
@@ -57,17 +65,13 @@ class cartValidations {
     this.elements.deliveryAddressText().should("contain.text", expectedAddress);
   }
 
-  // verifytotalamoount(expectedamount) {
-  //   this.elements.totalAmount().should("contain.text", expectedamount);
-  // }
   removeItemFromCart() {
     this.elements.clickOnCart().click();
     this.elements.removeItem().click();
-    
   }
 
-  saveForLater(){
-  this.elements.clickOnSaveforlater().click();
+  saveForLater() {
+    this.elements.clickOnSaveforlater().click();
   }
 }
 export default cartValidations;

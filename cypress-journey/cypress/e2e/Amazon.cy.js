@@ -13,23 +13,34 @@ before(() => {
   cy.fixture("example").then((loadedData) => {
     data = loadedData;
   });
-  
 });
 
 beforeEach(() => {
-  
-
-  cy.loginInToApplication(data.username, Cypress.env("password"));
+  cy.session("userSession", () => {
+    cy.loginInToApplication(Cypress.env("uname"), Cypress.env("password"));
+  });
+  cy.visit(Cypress.env("BASE_URL"));
+  cy.get(".nav-search-field input", { timeout: 10000 }).should("be.visible");
 });
 
 describe("Open Amazon", () => {
   it("verify the user and title ", () => {
     cy.title().should("include", "Amazon");
-    //cartvalidation.getInitialCartCount();
     loginpage.verifyuser(data.verifyusername);
   });
 
   it("should show Samsung S25 Ultra as the first product", function () {
+    cy.intercept(
+      {
+        method: "POST",
+        url: "**/https://unagi.amazon.in/1/events/com.amazon.csm.csa.prod",
+      },
+      {
+        statusCode: 200,
+        body: { productName: data.product },
+      }
+    ).as("searchAPI");
+    cy.wait("@searchAPI").its("response.statusCode").should("eq", 200);
     search.findproduct(data.product);
     search.SelectSuggestedProduct();
     search.verifypage(data.product);
@@ -58,25 +69,33 @@ describe("Open Amazon", () => {
       addToCart.addcharger();
 
       cartvalidation.confirmCartCountIncreased(initialCount);
-
-     
-   });
+    });
   });
   it("cart validation", () => {
-     cartvalidation.gotoCart();
-     cartvalidation.verifyCartProduct();
-     cartvalidation.verifyCartProduct2();
-     cartvalidation.clickonCheckout();
-     cartvalidation.verifyAddress(data.address);
-     cartvalidation.removeItemFromCart();
-     cartvalidation.saveForLater();
+    cartvalidation.gotoCart();
+
+    cy.intercept(
+      "POST",
+      "**/https://unagi-eu.amazon.com/1/events/com.amazon.csm.nexusclient.prod",
+      {
+        statusCode: 200,
+    
+      }
+    ).as("cartAPI");
+    cy.wait("@cartAPI").its("response.statusCode").should("eq", 200);
+
+    cartvalidation.verifyCartProduct();
+    cartvalidation.verifyCartProduct2();
+    cartvalidation.clickonCheckout();
+    cartvalidation.verifyAddress(data.address);
+    cartvalidation.removeItemFromCart();
+    cartvalidation.saveForLater();
   });
 
-  it("multiItems checkout", function(){
-     
+  it("multiItems checkout", function () {
     search.findproduct(data.multiItems);
     search.clickonsearch();
     search.selectbrand();
     search.addmultipleitem();
-  })
+  });
 });
