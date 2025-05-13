@@ -1,62 +1,102 @@
-import loginPage from "../support/pageObjects/LoginPage";
-import productPage from "../support/pageObjects/ProductPage";
-import cartPage from "../support/pageObjects/CartPage";
-import checkoutPage from "../support/pageObjects/CheckoutPage";
+import addToCartPage from "../support/pageObjects/addToCartPage";
+import searchPage from "../support/pageObjects/searchPage";
+import loginPage from "../support/pageObjects/loginPage";
+import validationPage from "../support/pageObjects/validationPage";
+import "../support/commands";
+//import validationPage from "../support/pageObjects/validationPage";
+let data;
+const addToCart = new addToCartPage();
+const search = new searchPage();
+const login = new loginPage();
+const validation = new validationPage();
 
-describe("E-Commerce Cart & Checkout Flow", () => {
-  beforeEach(() => {
-    cy.intercept("GET", "/api/products", { fixture: "products.json" }).as("getProducts");
-    cy.visit("/");
-    //cy.login();
+before(() => {
+  cy.fixture("example").then((loadedData) => {
+    data = loadedData;
   });
-  it("verify the login page", () => {
-    cy.get()
-  })
+});
 
-  it("Add to cart and validate checkout", () => {
-    cy.fixture("products").then((products) => {
-      products.forEach((product, index) => {
-        productPage.selectProduct(product.name);
-        productPage.addToCart();
-        productPage.verifyCartCount(index + 1);
-        cy.visit("/products");
-      });
+// beforeEach(() => {
+//   cy.session("userSession", () => {
+//     cy.loginInToApplication(Cypress.env("uname"), Cypress.env("password"));
+//   });
+//   cy.visit(Cypress.env("BASE_URL"));
+//   cy.get(".nav-search-field input", { timeout: 10000 }).should("be.visible");
+// });
+
+describe("Open Amazon", () => {
+  it("verify the user and title ", () => {
+    cy.title().should("include", "Amazon");
+    login.verifyuser(data.verifyusername);
+  });
+
+  it("should show Samsung S25 Ultra as the first product", function () {
+    cy.intercept(
+      {
+        method: "POST",
+        url: "**/https://unagi.amazon.in/1/events/com.amazon.csm.csa.prod",
+      },
+      {
+        statusCode: 200,
+        body: { productName: data.product },
+      }
+    ).as("searchAPI");
+    cy.wait("@searchAPI").its("response.statusCode").should("eq", 200);
+    search.findproduct(data.product);
+    search.SelectSuggestedProduct();
+    search.verifypage(data.product);
+  });
+
+  it("should navigate back to search results after viewing a product", function () {
+    search.findproduct(data.product);
+    search.SelectSuggestedProduct();
+    search.selectItem(data.product);
+
+    cy.go("back");
+    search.verifypage(data.product);
+  });
+
+  it("should select the product  and add to the cart", function () {
+    search.findproduct(data.product);
+    search.SelectSuggestedProduct();
+    addToCart.addToCart();
+  });
+
+  it("should search a charger and add to the cart ", function () {
+    validation.getInitialCartCount().then((initialCount) => {
+      search.findproduct(data.charger);
+      search.SelectSuggestedProduct();
+
+      addToCart.addcharger();
+
+      validation.confirmCartCountIncreased(initialCount);
     });
+  });
+  it("cart validation", () => {
+    validation.gotoCart();
 
-    cartPage.goToCart();
-    cartPage.updateQuantity(2);
-    cartPage.saveForLater();
-    cartPage.removeItem();
+    cy.intercept(
+      "POST",
+      "**/https://unagi-eu.amazon.com/1/events/com.amazon.csm.nexusclient.prod",
+      {
+        statusCode: 200,
 
-    checkoutPage.proceedToCheckout();
-    checkoutPage.verifyProductDetails();
-    checkoutPage.fillAddress();
-    checkoutPage.applyCoupon("SAVE10");
-    checkoutPage.validateForm();
+      }
+    ).as("cartAPI");
+    cy.wait("@cartAPI").its("response.statusCode").should("eq", 200);
+
+    validation.verifyCartProduct();
+    validation.verifyCartProduct2();
+    validation.clickonCheckout();
+    validation.verifyAddress(data.address);
+    validation.removeItemFromCart();
+    validation.saveForLater();
   });
 
-  it("Handles out-of-stock scenario", () => {
-    cy.intercept("POST", "/api/cart", {
-      statusCode: 400,
-      body: { error: "Out of Stock" }
-    }).as("addCart");
-
-    productPage.selectProduct("Out of Stock Product");
-    productPage.addToCart();
-    cy.wait("@addCart");
-    cy.contains("Out of Stock").should("exist");
-  });
-
-  it("Persists cart across sessions", () => {
-    cy.addToCart("Laptop");
-    cy.reload();
-    cartPage.goToCart();
-    cy.get(".cart-item").should("exist");
-  });
-
-  it("Mobile view responsive test", () => {
-    cy.viewport("iphone-6");
-    cy.visit("/");
-    cy.get("#nav-menu").should("be.visible");
+  it("multiItems checkout", function () {
+    search.findproduct(data.multiItems);
+    search.clickonsearch();
+    search.selectbrand();
+    search.addmultipleitem();
   });
 });
