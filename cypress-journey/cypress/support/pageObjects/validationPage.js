@@ -74,4 +74,5 @@ class validationPage {
       this.elements.clickOnSaveforlater().click();
     }
   }
+  
   export default validationPage;

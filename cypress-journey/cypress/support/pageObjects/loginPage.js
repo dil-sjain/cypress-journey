@@ -32,6 +32,5 @@ import { url } from "inspector";
         }
     };
     
-
 export default loginPage;
 

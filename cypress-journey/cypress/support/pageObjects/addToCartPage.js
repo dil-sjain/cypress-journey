@@ -10,4 +10,5 @@ class addToCartPage {
         this.elements.addChargerToCart().click();
       }
     }
+    
     export default addToCartPage;

@@ -52,4 +52,5 @@ class searchPage {
   
   }
 }
+
   export default searchPage;
