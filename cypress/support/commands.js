@@ -1,12 +1,39 @@
-// This file is intentionally left blank.
+import loginPage from "./pageObjects/loginPage";
 
 
-Cypress.Commands.add('login', (email, password) => {
-    cy.visit(Cypress.env('baseUrl'));
-    cy.get('#nav-link-accountList-nav-line-1').click({force:true});
-    // cy.get('#nav-flyout-ya-signin').should('be.visible');
-    // cy.get('#nav-flyout-ya-signin').click({force:true});
-    cy.get('input[name="email"]').type(email+'{enter}');
-    cy.get('input[name="password"]').type(password,'{log:false}').type('{enter}');
-    
-})
+Cypress.Commands.add('loginInToApplication', (user_email, user_password) => {
+    cy.log('Logging in', Cypress.env('BASE_URL'));
+    cy.clearCookies();
+    cy.clea
+
+    cy.visit(Cypress.env('BASE_URL'));
+
+    loginPage.clickOnSignInButton();
+    loginPage.enterUsername(user_email);
+    loginPage.enterPassword(user_password);
+    loginPage.clickOnLoginButton();
+});
+
+Cypress.Commands.add('apiMockGET', (endpoint, fixtureFile, aliasUsed) => {
+  cy.fixture(fixtureFile).then((data) => {
+    cy.intercept({
+        method: 'GET',
+        url: endpoint,
+    },{
+        statusCode: 200,
+        body: data,
+    }).as(aliasUsed);
+  });
+});
+
+Cypress.Commands.add('apiMockPOST', (endpoint, fixtureFile, aliasUsed) => {
+  cy.fixture(fixtureFile).then((data) => {
+    cy.intercept({
+        method: 'POST',
+        url: endpoint,
+    },{
+        statusCode: 200,
+        body: data,
+    }).as(aliasUsed);
+  });
+});

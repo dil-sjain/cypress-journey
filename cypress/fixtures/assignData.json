@@ -7,11 +7,66 @@
         "min_price_slider":"80",
         "max_price_slider":"120",
         "expected_min_price":500,
-        "expected_max_price":150000,
+        "expected_max_price":160000,
         "filter_brand":"realme"
     },
     "product":{
         "product_name":"Apple iPhone 15 (128 GB) - Green",
-        "product_price":58999
+        "product_price":61400
+        
+
+    },
+    "productAvailability":{
+        "available":{
+            "Status":"Available",
+            "availability": "In stock",
+            "successCode": "Deliverable",
+            "message": "This product is available for delivery."
+        },
+        "not_available":{
+            "Status":"Not Available",
+            "availability": "Out of stock",
+            "errorCode": "OUT OF STOCK",
+            "message": "This product is currently out of stock."
+        }
+    },
+    "cart":{
+        "expected_initial_cart_count":0,
+        "expected_cart_count_multiple":3,
+        "cart_action_add":"addProduct",
+        "cart_action_remove":"removeProduct",
+        "product_name":"Apple iPhone 15 (128 GB) - Green",
+        "expected_cart_price":61400,
+        "expected_cart_section_title":"Shopping Cart",
+        "expected_cart_product_name":"Apple iPhone 15 (128 GB) - Green"
+
+    },
+    "checkout":{
+        "expected_checkout_page_title":"Secure checkout",
+        "expected_checkout_url":"/checkout",
+        "expected_checkout_product_name":"Apple iPhone 15 (128 GB) - Green",
+        "expected_checkout_price":61400,
+        "expected_checkout_price_multiple":73995,
+        "expected_checkout_shipping_address":"123, Shivaji Chowk, Borivali, Borivali Ghatkopar, Mumbai, MAHARASHTRA, 431203, India",
+        "expected_checkout_shipping_address_multiple":"123, Street Name, City, Mera Area, Mumbai, MAHARASHTRA, 431203, India"
+    },
+    "address":{
+        "name":"Satish Kumar",
+        "mobile":"1234567890",
+        "pincode":"431203",
+        "address":"123, Shivaji Chowk, Borivali",
+        "area":"Borivali Ghatkopar",
+        "country":"India",
+        "state":"MAHARASHTRA",
+        "city":"Mumbai",
+        
+        "landmark":"Near Park",
+        "address_text":"Delivering to "
+    },
+    "new_product":{
+        "product_name":"OnePlus Nord CE4 (Dark Chrome, 8GB RAM, 128GB Storage)",
+        "product_price":21998,
+        "product_title":"OnePlus Nord"
+    
     }
 }

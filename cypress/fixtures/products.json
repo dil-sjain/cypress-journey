@@ -1,0 +1,156 @@
+[
+  {
+    "id": 1,
+    "name": "Apple iPhone 15 (128 GB) - Green",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for Apple iPhone 15 (128 GB) - Green"
+  },
+  {
+    "id": 2,
+    "name": "Apple iPhone 15 (128 GB) - Green",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for Apple iPhone 15 (128 GB) - Green"
+  },
+  {
+    "id": 3,
+    "name": "Apple iPhone 15 (128 GB) - Black",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for Apple iPhone 15 (128 GB) - Black"
+  },
+  {
+    "id": 4,
+    "name": "Apple iPhone 15 (128 GB) - Pink",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for Apple iPhone 15 (128 GB) - Pink"
+  },
+  {
+    "id": 5,
+    "name": "Apple iPhone 15 (128 GB) - Blue",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for Apple iPhone 15 (128 GB) - Blue"
+  },
+  {
+    "id": 6,
+    "name": "Apple iPhone 15 (256 GB) - Green",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for Apple iPhone 15 (256 GB) - Green"
+  },
+  {
+    "id": 7,
+    "name": "Apple iPhone 15 (512 GB) - Green",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for Apple iPhone 15 (512 GB) - Green"
+  },
+  {
+    "id": 8,
+    "name": "Apple iPhone 15 Plus (128 GB) - Blue",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for Apple iPhone 15 Plus (128 GB) - Blue"
+  },
+  {
+    "id": 9,
+    "name": "Apple iPhone 15 (256 GB) - Blue",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for Apple iPhone 15 (256 GB) - Blue"
+  },
+  {
+    "id": 10,
+    "name": "Apple iPhone 15 Plus (128 GB) - Black",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for Apple iPhone 15 Plus (128 GB) - Black"
+  },
+  {
+    "id": 11,
+    "name": "Samsung Galaxy A55 5G (Awesome Iceblue, 8GB RAM, 256GB Storage) | Metal Frame | 50 MP Main Camera (OIS) | Nightography | IP67 | Corning Gorilla Glass Victus+ | sAMOLED with Vision Booster",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for Samsung Galaxy A55 5G (Awesome Iceblue, 8GB RAM, 256GB Storage) | Metal Frame | 50 MP Main Camera (OIS) | Nightography | IP67 | Corning Gorilla Glass Victus+ | sAMOLED with Vision Booster"
+  },
+  {
+    "id": 12,
+    "name": "Xiaomi 15 (Black, 12GB/512GB)| 50 MP Leica Triple Camera | SD 8 Elite | 1.5K CrystalRes Dynamic 1-120 Hz AMOLED | Hyper AI",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for Xiaomi 15 (Black, 12GB/512GB)| 50 MP Leica Triple Camera | SD 8 Elite | 1.5K CrystalRes Dynamic 1-120 Hz AMOLED | Hyper AI"
+  },
+  {
+    "id": 13,
+    "name": "Apple iPhone 15 Plus (256 GB) - Green",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for Apple iPhone 15 Plus (256 GB) - Green"
+  },
+  {
+    "id": 14,
+    "name": "Apple iPhone 15 (256 GB) - Black",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for Apple iPhone 15 (256 GB) - Black"
+  },
+  {
+    "id": 15,
+    "name": "Apple iPhone 15 Plus (128 GB) - Pink",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for Apple iPhone 15 Plus (128 GB) - Pink"
+  },
+  {
+    "id": 16,
+    "name": "iPhone 16e 128 GB: Built for Apple Intelligence, A18 Chip, Supersized Battery Life, 48MP Fusion. Camera, 15.40 cm (6.1″) Super Retina XDR Display; Black",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for iPhone 16e 128 GB: Built for Apple Intelligence, A18 Chip, Supersized Battery Life, 48MP Fusion. Camera, 15.40 cm (6.1″) Super Retina XDR Display; Black"
+  },
+  {
+    "id": 17,
+    "name": "iPhone 16e 128 GB: Built for Apple Intelligence, A18 Chip, Supersized Battery Life, 48MP Fusion. Camera, 15.40 cm (6.1″) Super Retina XDR Display; White",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for iPhone 16e 128 GB: Built for Apple Intelligence, A18 Chip, Supersized Battery Life, 48MP Fusion. Camera, 15.40 cm (6.1″) Super Retina XDR Display; White"
+  },
+  {
+    "id": 18,
+    "name": "Apple iPhone 15 (256 GB) - Pink",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for Apple iPhone 15 (256 GB) - Pink"
+  },
+  {
+    "id": 19,
+    "name": "Apple iPhone 15 Plus (128 GB) - Yellow",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for Apple iPhone 15 Plus (128 GB) - Yellow"
+  },
+  {
+    "id": 20,
+    "name": "Samsung Galaxy S25 5G AI Smartphone (Icyblue, 12GB RAM, 256GB Storage), 50MP Camera with Galaxy AI",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for Samsung Galaxy S25 5G AI Smartphone (Icyblue, 12GB RAM, 256GB Storage), 50MP Camera with Galaxy AI"
+  },
+  {
+    "id": 21,
+    "name": "Samsung Galaxy S25 5G AI Smartphone (Silver Shadow, 12GB RAM, 256GB Storage), 50MP Camera with Galaxy AI",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for Samsung Galaxy S25 5G AI Smartphone (Silver Shadow, 12GB RAM, 256GB Storage), 50MP Camera with Galaxy AI"
+  },
+  {
+    "id": 22,
+    "name": "KAPAVER Mag-X Back Cover Case Compatible with iPhone 15 (TPU+PC) (Black)",
+    "price": null,
+    "currency": "INR",
+    "description": "Description for KAPAVER Mag-X Back Cover Case Compatible with iPhone 15 (TPU+PC) (Black)"
+  }
+]
