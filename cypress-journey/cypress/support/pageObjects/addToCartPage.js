@@ -1,11 +1,9 @@
-class addCartPage {
-  webLocators = {
-    //formControl: () => cy.get('.form-control'),
-    addToCart: () => cy.get("#nav-cart"),
-    cartCount: () => cy.get("#nav-cart-count"),
-    address: () => cy.get("#checkout-deliveryAddressPanel"),
-  };
+import { addCartPageLocators } from "../locators/addToCartPageLocator";
 
+class addCartPage {
+  constructor() {
+    this.webLocators = addCartPageLocators;
+  }
   AddToCart() {
     return this.webLocators.addToCart();
   }
@@ -19,7 +17,7 @@ class addCartPage {
       .then((text) => parseInt(text));
   }
   validateAddress() {
-    return this.webLocators.address().should("be.visible");
+    return this.webLocators.address().should("be.visible", { timeout: 10000 });
   }
 }
 

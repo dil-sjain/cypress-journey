@@ -1,48 +1,64 @@
+import { SearchPageLocators } from "../locators/searchPageLocators";
+
 class SearchPage {
-  searchInput = "#twotabsearchtextbox";
-  searchButton = "input[id='nav-search-submit-button']";
-  addToCartButton = "#a-autoid-1-announce";
-  goToCartButton = "a.a-button-text";
-  shoppingCartTitle = "h2";
-  proceedToPay = "input[name=proceedToRetailCheckout]";
-  paymentPage = ".a-box-group";
-  continueBtn = '[data-testid="secondary-continue-button"]';
-  prodDetails = ".sc-list-item-content";
-  Amountvalidation = "#sc-subtotal-amount-activecart";
-  saveForLater = 'input[value="Save for later"]';
+  constructor() {
+    this.webLocators = SearchPageLocators;
+  }
+
+  getCartTotalValue() {
+    return cy
+      .get(this.webLocators.cartPrice)
+      .invoke("text")
+      .then((text) => {
+        const cleaned = text.replace(/[^\d]/g, "");
+        return Number(cleaned);
+      });
+  }
+
+  assertCartTotalNotZero() {
+    return this.getCartTotalValue().then((total) => {
+      expect(total, "Cart total should not be zero").to.not.equal(0);
+    });
+  }
 
   searchProduct(productName) {
-    cy.get(this.searchInput).clear().type(productName);
-    cy.get(this.searchButton).click();
+    cy.get(this.webLocators.searchInput).clear().type(productName);
+    cy.get(this.webLocators.searchButton).click();
   }
+
   addToCart() {
-    cy.get(this.addToCartButton).contains("Add to cart").click();
+    cy.get(this.webLocators.addToCartButton).contains("Add to cart").click();
   }
 
   goToCart() {
-    cy.get(this.goToCartButton).contains("Go to Cart").click();
+    cy.get(this.webLocators.goToCartButton).contains("Go to Cart").click();
   }
 
   verifyCartTitle(expectedTitle) {
-    cy.contains(this.shoppingCartTitle, expectedTitle).should("be.visible");
+    cy.contains(this.webLocators.shoppingCartTitle, expectedTitle).should(
+      "be.visible"
+    );
   }
+
   verifyProceedToPay() {
-    cy.get(this.proceedToPay).should("be.visible").click();
+    cy.get(this.webLocators.proceedToPay).should("be.visible").click();
   }
+
   verifyPaymentPage() {
-    cy.get(this.paymentPage, { timeout: 10000 }).should("exist");
+    cy.get(this.webLocators.paymentPage, { timeout: 10000 }).should("exist");
   }
+
   clickContinueBtn() {
-    cy.get(this.continueBtn).click();
+    cy.get(this.webLocators.continueBtn).click();
   }
+
   validateProdDetails() {
-    cy.get(this.prodDetails).should("contain", "iPhone 16");
+    cy.get(this.webLocators.prodDetails).should("contain", "iPhone 16");
   }
-  validateAmount() {
-    cy.get(this.Amountvalidation).should("contain", "₹");
-  }
+
   saveForLaterAction() {
-    cy.get(this.saveForLater).first().click();
+    cy.get(this.webLocators.saveForLater).first().click();
   }
 }
+
 export default new SearchPage();

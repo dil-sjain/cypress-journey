@@ -1,27 +1,29 @@
+import { LoginWebLocators } from "../locators/loginPagelocator";
+
 class LoginPage {
-  webLocators = {
-    accountList: () => cy.get("#nav-link-accountList"),
-    username: () => cy.get("input[type='email']"),
-    password: () => cy.get("#ap_password"),
-    proceed: () => cy.get("input[class='a-button-input']"),
-    submitBtn: () => cy.get("#signInSubmit"),
-  };
+  constructor() {
+    this.locators = LoginWebLocators;
+  }
 
-  clickAccountList = () => {
-    this.webLocators.accountList().click();
-  };
+  clickAccountList() {
+    cy.get(this.locators.accountList).click();
+  }
 
-  enterUsername = (user_name) => {
-    this.webLocators.username().type(user_name);
-  };
-  clickProceed = () => {
-    this.webLocators.proceed().click();
-  };
-  enterPassword = (password) => {
-    this.webLocators.password().type(password);
-  };
-  clickSubmit = () => {
-    this.webLocators.submitBtn().should("be.visible").click();
-  };
+  enterUsername(user_name) {
+    cy.get(this.locators.username).type(user_name);
+  }
+
+  clickProceed() {
+    cy.get(this.locators.proceed).click();
+  }
+
+  enterPassword(password) {
+    cy.get(this.locators.password).type(password);
+  }
+
+  clickSubmit() {
+    cy.get(this.locators.submitBtn).should("be.visible").click();
+  }
 }
+
 export default LoginPage;

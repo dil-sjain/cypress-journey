@@ -1,22 +1,19 @@
 import LoginPage from "../support/pageObjects/loginPage";
 import searchPage from "../support/pageObjects/searchPage";
 import '../support/commands';
-
+import { cartConst } from "../support/const/constants";
+import testData from '../fixtures/testData.json';
 describe("Navigate to amazpn website and perform some action",()=>{
-   let testData;
     before(() => {
+        cy.log(' Logging into Amazon and loading test data'); 
         const { user_name, password } = Cypress.env();
-        cy.loginInToApplication(user_name, password);
-        cy.fixture('testData').then((data) => {
-            testData = data;
-          });
+        cy.loginInToApplication(user_name, password);  
     })
     it("action performed for iphone 16 in the web page",() => {
-    const expectedCartTitle = 'Shopping Cart';
-    searchPage.searchProduct(testData.mobile);
+    searchPage.searchProduct(testData.headphone);
     searchPage.addToCart();
     searchPage.goToCart();
-    searchPage.verifyCartTitle(expectedCartTitle);
+    searchPage.verifyCartTitle(cartConst.expectedCartTitle);
     searchPage.verifyProceedToPay();
     searchPage.clickContinueBtn();
     searchPage.verifyPaymentPage();
