@@ -15,14 +15,6 @@ class searchPage {
     item1: () => cy.get("#a-autoid-1-announce"),
     item2: () => cy.get("#a-autoid-2-announce"),
     item3: () => cy.get("#a-autoid-3-announce"),
-
-    // sizeOption: () => cy.get("span#size_name_1 input[name='1']"),
-    // styleOption: () =>
-    //   cy.get("#style_name_0 >.a-button-inner > .a-button-input"),
-    // memorySizeText: () =>
-    //   cy.get("#inline-twister-expanded-dimension-text-size_name"),
-    // setupServiceCheckbox: () =>
-    //   cy.get("label[for='ppdb-add-service-checkbox']"),
   };
 
   findproduct(product) {

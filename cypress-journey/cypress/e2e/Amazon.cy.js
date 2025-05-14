@@ -3,6 +3,7 @@ import searchPage from "../support/pageObjects/searchPage";
 import loginPage from "../support/pageObjects/loginPage";
 import cartValidation from "../support/pageObjects/cartvalidations";
 import "../support/commands";
+import Endpoints from "../support/utils/endpoint";
 let data;
 const addToCart = new addToCartPage();
 const search = new searchPage();
@@ -30,16 +31,8 @@ describe("Open Amazon", () => {
   });
 
   it("should show Samsung S25 Ultra as the first product", function () {
-    cy.intercept(
-      {
-        method: "POST",
-        url: "**/https://unagi.amazon.in/1/events/com.amazon.csm.csa.prod",
-      },
-      {
-        statusCode: 200,
-        body: { productName: data.product },
-      }
-    ).as("searchAPI");
+
+    Endpoints.interceptSearchAPI();
     cy.wait("@searchAPI").its("response.statusCode").should("eq", 200);
     search.findproduct(data.product);
     search.SelectSuggestedProduct();
@@ -74,17 +67,10 @@ describe("Open Amazon", () => {
   it("cart validation", () => {
     cartvalidation.gotoCart();
 
-    cy.intercept(
-      "POST",
-      "**/https://unagi-eu.amazon.com/1/events/com.amazon.csm.nexusclient.prod",
-      {
-        statusCode: 200,
-    
-      }
-    ).as("cartAPI");
+   Endpoints.interceptCartAPI();
     cy.wait("@cartAPI").its("response.statusCode").should("eq", 200);
 
-    cartvalidation.verifyCartProduct();
+   cartvalidation.verifyCartProduct();
     cartvalidation.verifyCartProduct2();
     cartvalidation.clickonCheckout();
     cartvalidation.verifyAddress(data.address);
