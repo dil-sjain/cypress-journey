@@ -1,9 +1,9 @@
 {
-  "sampleData": {
-    "id": 1,
-    "name": "Sample Item",
-    "description": "This is a sample item used for testing.",
-    "price": 19.99,
-    "available": true
-  }
+  "product": "Samsung Galaxy S25 Ultra",
+  "memorysize": "12GB RAM + 512GB Storage",
+  "verifyusername": "Hello, Rahul",
+  "charger": "samsung charger 45w",
+  "address": "KKB312 hostel coer university, Coer University roorkee haridwar 247667, ROORKEE, UTTARAKHAND, 247667, India",
+  "multiItems": "protein"
 }
+ 
