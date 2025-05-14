@@ -5,7 +5,7 @@ export default class Endpoints {
       "**/https://unagi.amazon.in/1/events/com.amazon.csm.csa.prod",
       {
         statusCode: 200,
-        body: { productName: "Mocked Product" },
+        body: { productName: "Samsung Galaxy S25 Ultra 5G AI Smartphone" },
       }
     ).as("searchAPI");
   }
