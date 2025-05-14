@@ -12,3 +12,4 @@ Cypress.Commands.add("loginInToApplication", (username, password) => {
 
   loginpage.clickOnLoginButton();
 });
+ 

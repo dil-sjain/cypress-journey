@@ -31,7 +31,6 @@ describe("Open Amazon", () => {
   });
 
   it("should show Samsung S25 Ultra as the first product", function () {
-
     Endpoints.interceptSearchAPI();
     cy.wait("@searchAPI").its("response.statusCode").should("eq", 200);
     search.findproduct(data.product);
@@ -67,10 +66,10 @@ describe("Open Amazon", () => {
   it("cart validation", () => {
     cartvalidation.gotoCart();
 
-   Endpoints.interceptCartAPI();
+    Endpoints.interceptCartAPI();
     cy.wait("@cartAPI").its("response.statusCode").should("eq", 200);
 
-   cartvalidation.verifyCartProduct();
+    cartvalidation.verifyCartProduct();
     cartvalidation.verifyCartProduct2();
     cartvalidation.clickonCheckout();
     cartvalidation.verifyAddress(data.address);
@@ -84,4 +83,4 @@ describe("Open Amazon", () => {
     search.selectbrand();
     search.addmultipleitem();
   });
-});
+}); 

@@ -15,7 +15,7 @@ class searchPage {
     item1: () => cy.get("#a-autoid-1-announce"),
     item2: () => cy.get("#a-autoid-2-announce"),
     item3: () => cy.get("#a-autoid-3-announce"),
-  };
+  }; 
 
   findproduct(product) {
     this.elements.searchBox().type(product);
@@ -38,7 +38,6 @@ class searchPage {
     this.elements.productImage().should("be.visible");
   }
 
-
   verifypage(productName) {
     this.elements
       .productTitle(productName)
@@ -53,7 +52,6 @@ class searchPage {
     this.elements.item2().click();
     this.elements.item3().click();
   }
-  
 }
 
 export default searchPage;

@@ -1,4 +1,3 @@
-
 class loginPage {
   webLocators = {
     accountListLink: () => cy.get("#nav-link-accountList-nav-line-1"),
@@ -30,3 +29,4 @@ class loginPage {
   }
 }
 export default loginPage;
+ 

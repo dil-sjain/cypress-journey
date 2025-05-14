@@ -5,7 +5,7 @@ export default class Endpoints {
       "**/https://unagi.amazon.in/1/events/com.amazon.csm.csa.prod",
       {
         statusCode: 200,
-        body: { productName: "Mocked Product" }, // Mocked response
+        body: { productName: "Mocked Product" },
       }
     ).as("searchAPI");
   }
@@ -20,5 +20,4 @@ export default class Endpoints {
     ).as("cartAPI");
   }
 }
-
-
+ 

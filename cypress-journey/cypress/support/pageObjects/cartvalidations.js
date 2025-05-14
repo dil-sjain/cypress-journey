@@ -15,7 +15,7 @@ class cartValidations {
       ),
     removeItem: () =>
       cy.get(
-        "button[aria-label='Delete Samsung Original 45W Type-C Travel Adaptor with Cable, Black'] span[class='a-icon a-icon-small-trash']"
+        "div[class='a-row sc-action-links'] input[name='submit.save-for-later.b2084fdb-6e30-4cba-9a3e-64db924e0335']"
       ),
     verifytotalItem: () => cy.get("#sc-subtotal-label-activecart"),
     clickOnSaveforlater: () =>
@@ -75,3 +75,4 @@ class cartValidations {
   }
 }
 export default cartValidations;
+ 
