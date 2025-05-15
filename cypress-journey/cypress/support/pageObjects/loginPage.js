@@ -2,9 +2,14 @@
 
 class loginPage {
   webLocators = {
-    username: () => cy.get('#loginID'),
-    password: () => cy.get('#pw'),
-    loginButton: () => cy.get('#btnSubmit'),
+    username: () => cy.get('#ap_email_login'),
+    password: () => cy.get('#ap_password'),
+    loginButton: () => cy.get('#signInSubmit'),
+    continueButton: () => cy.get('#continue'),
+    signinButton:()=> cy.get("#nav-link-accountList")
+  
+    
+
   };
 
   // Actions
@@ -17,6 +22,12 @@ class loginPage {
   };
   clickOnLoginButton = () => {
     this.webLocators.loginButton().click();
+  };
+  clickOnContinueButton = () => {
+    this.webLocators.continueButton().click();
+  };
+  openSignupPage = () => {
+    this.webLocators.signinButton().click();
   };
 }
 export default new loginPage();
