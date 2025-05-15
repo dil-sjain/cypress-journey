@@ -43,9 +43,7 @@ class checkOutPage {
     this.webLocators.getEnterCodeTbx().should("be.visible");
     this.webLocators.getEnterCodeTbx().should("be.visible").type(couponCode);
     this.webLocators.getApplyBtn().should("be.visible").click();
-    cy.contains("The promotional code you entered is not valid").should(
-      "exist"
-    );
+    cy.contains(Cypress.env('ThePromotionalCodeErrorMsg'), { timeout: 10000 }).should('exist');
   }
 
   fillingTheAddressDetails() {
