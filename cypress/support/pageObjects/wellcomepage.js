@@ -6,6 +6,8 @@ class wellcomepage {
       cy.get("span[id='nav-link-accountList-nav-line-1']"),
     getSearchTxbOnWellcome: () => cy.get("#twotabsearchtextbox"),
     getSearchbtnWellcome: () => cy.get("#nav-search-submit-button"),
+    getSearchedItemLocator: () => cy.get("h2[aria-label*='iPhone']"),
+    
   };
 
   //Actions

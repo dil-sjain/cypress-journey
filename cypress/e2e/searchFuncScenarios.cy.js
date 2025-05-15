@@ -5,11 +5,11 @@ import loginpage1 from "../support/pageObjects/loginpage1.js";
 import homepage from "../support/pageObjects/homepage.js";
 import wellcomepage from "../support/pageObjects/wellcomepage.js";
 import addToCartPage from "../support/pageObjects/addToCartPage.js";
+import { endpoints, interceptgetSearchRequest } from '../support/endpoints.js';
 
 describe("Search FUnction Scenarios Test Suite", () => {
   beforeEach(() => {
-    wellcomepage.searchOnWellcomeScreen();
-    cy.intercept("GET", "**/s/ref=nb_sb_noss**").as("searchRequest");
+    interceptgetSearchRequest();
   });
 
   it("Search Operation without Login and Printing Productname and Prizes", () => {
@@ -28,8 +28,8 @@ describe("Search FUnction Scenarios Test Suite", () => {
       expect(containsIphone).to.be.true;
     });
 
-    cy.get("h2[aria-label*='iPhone']", { timeout: 10000 }).should("be.visible");
-    cy.get('h2[aria-label*="iPhone"]').each(($el) => {
+    cy.get(wellcomepage.webLocators.getSearchedItemLocator(), { timeout: 10000 }).should('be.visible');
+    cy.get(wellcomepage.webLocators.getSearchedItemLocator()).each(($el) => {
       const Mobilename = $el.text();
       const prize = $el
         .closest("div.a-spacing-top-small")
@@ -46,8 +46,8 @@ describe("Search FUnction Scenarios Test Suite", () => {
       .clear()
       .type(`${reqProduct}`)
       .type("{enter}"); //.type(`${reqProduct}{enter}`);
-    cy.get("h2[aria-label*='iPhone']", { timeout: 10000 }).should("be.visible");
-    cy.get('h2[aria-label*="iPhone"]').first().click();
+    cy.get(wellcomepage.webLocators.getSearchedItemLocator(), { timeout: 10000 }).should('be.visible');
+    cy.get(wellcomepage.webLocators.getSearchedItemLocator()).first().click();
   });
 
   it("Adding the product to the cart and validating", () => {
