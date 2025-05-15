@@ -11,6 +11,8 @@ class addToCartPage {
     deliveryAddressText: () => cy.get("#deliver-to-address-text"),
     totalAmountText: () => cy.get("#sc-subtotal-amount-buybox > span"),
     clickOnCart: () => cy.get("#nav-cart-count-container"),
+    saveForLaterButton: () => "span.a-size-small.sc-action-save-for-later > span > input",
+    removeFromCartButton: () => "span.a-size-small.sc-action-delete > span > input"
   };
 
   openAndAddtoCart() {
@@ -84,7 +86,7 @@ class addToCartPage {
     this.webLocators
       .cartItems()
       .eq(0)
-      .find("span.a-size-small.sc-action-delete > span > input")
+      .find(this.webLocators.removeFromCartButton())
       .click();
   }
 
@@ -93,7 +95,7 @@ class addToCartPage {
     this.webLocators
       .cartItems()
       .eq(0)
-      .find("span.a-size-small.sc-action-save-for-later > span > input")
+      .find(this.webLocators.saveForLaterButton())
       .eq(0)
       .click();
   }
