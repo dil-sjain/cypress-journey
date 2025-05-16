@@ -1,11 +1,28 @@
+import { time } from "console";
+
 class searchPage {
     webLocators = {
-      //formControl: () => cy.get('.form-control'),
+      searchInput: () => cy.get('#twotabsearchtextbox'),
+      searchButton: () => cy.get('#nav-search-submit-button'),
+      products: () => cy.get('h2.a-size-medium'),
+      
     };
 
-    // getSearchInput() {
-    //     return this.webLocators.formControl();
-    // }
+    //actions
+    searchProduct(productName) {
+        this.webLocators.searchInput().type(productName);
+        this.webLocators.searchButton().click();
+    };
+    searchInput() {
+        return this.webLocators.searchInput();
+    };
+    searchButton() {
+        return this.webLocators.searchButton();
+    };
+    getProductList() {
+        return this.webLocators.products();
+  
+      }
+  
 }
-
 export default new searchPage();

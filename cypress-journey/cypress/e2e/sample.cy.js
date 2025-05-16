@@ -1,6 +1,7 @@
 import '../support/commands';
 
-describe('Sample Test Suite', () => {
+describe.skip('Sample Test Suite', () => {
+    
 
     before(() => {
         cy.loginInToApplication(

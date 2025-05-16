@@ -5,13 +5,14 @@ module.exports = defineConfig({
   viewportWidth: 1280,
   viewportHeight: 720,
   fixturesFolder: 'cypress/fixtures',
+  video: true,
+  videosFolder: 'cypress/videos',
 
   env: {
-    username: process.env.username,
+    username: process.env.username1,
     password: process.env.password,
     BASE_URL: process.env.BASE_URL,
   },
-
   e2e: {
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
