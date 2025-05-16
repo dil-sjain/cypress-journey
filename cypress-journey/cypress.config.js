@@ -7,7 +7,7 @@ module.exports = defineConfig({
   fixturesFolder: 'cypress/fixtures',
 
   env: {
-    username: process.env.username,
+    userName: process.env.user_name,
     password: process.env.password,
     BASE_URL: process.env.BASE_URL,
   },

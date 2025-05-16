@@ -1,12 +1,32 @@
-import loginPage from "../support/pageObjects/loginPage";
+// import loginPage from "./pageObjects/loginPage";
 
-Cypress.Commands.add('loginInToApplication', (username, password) => {
+// Cypress.Commands.add('loginInToApplication', (username, password) => {
+//     cy.log('Logging in', Cypress.env('BASE_URL'));
+//     cy.clearCookies();
+
+//     cy.visit(Cypress.env('BASE_URL'), { timeout: 60000 });
+
+//     loginPage.enterUsername(username);
+//     loginPage.enterPassword(password);
+//     loginPage.clickSubmit();
+// });
+import LoginPage from "./pageObjects/loginPage";
+Cypress.Commands.add('loginInToApplication', (userName, password) => {
+    //const loginPage = new LoginPage();
+        const loginPage = new LoginPage();
+
+
     cy.log('Logging in', Cypress.env('BASE_URL'));
     cy.clearCookies();
-
-    cy.visit(Cypress.env('BASE_URL'), { timeout: 10000 });
-
-    loginPage.enterUsername(username);
+ 
+    cy.visit(Cypress.env('BASE_URL'), { timeout: 60000 });
+ 
+    loginPage.clickAccountList();
+   // cy.log('Clicking on Account List');
+    //cy.log('Entering mobile number', username);
+    loginPage.enterUsername(userName);
+   // cy.log('enterUsername', username);
+    loginPage.clickProceed();
     loginPage.enterPassword(password);
-    loginPage.clickOnLoginButton();
+    loginPage.clickSubmit();
 });

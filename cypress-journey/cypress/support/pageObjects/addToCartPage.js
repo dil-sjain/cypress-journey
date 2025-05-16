@@ -1,11 +1,24 @@
-class addToCartPage {
-    webLocators = {
-      //formControl: () => cy.get('.form-control'),
-    };
+import { addToCartPageLocators } from "../locators/addToCartPageLocator";
 
-    // getSearchInput() {
-    //     return this.webLocators.formControl();
-    // }
+class addCartPage {
+  constructor() {
+    this.webLocators = addToCartPageLocators;
+  }
+  AddToCart() {
+    return this.webLocators.addToCart();
+  }
+  CartCount() {
+    return this.webLocators.cartCount();
+  }
+  CartCountnew() {
+    return this.webLocators
+      .cartCount()
+      .invoke("text")
+      .then((text) => parseInt(text));
+  }
+  validateAddress() {
+    return this.webLocators.address().should("be.visible", { timeout: 10000 });
+  }
 }
 
-export default new addToCartPage();
+export default new addCartPage();

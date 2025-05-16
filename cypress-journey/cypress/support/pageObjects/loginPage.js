@@ -1,22 +1,29 @@
-// Description: This file contains the page objects for the login page.
+import { LoginWebLocators } from "../locators/loginPagelocator";
 
-class loginPage {
-  webLocators = {
-    username: () => cy.get('#loginID'),
-    password: () => cy.get('#pw'),
-    loginButton: () => cy.get('#btnSubmit'),
-  };
+class LoginPage {
+  constructor() {
+    this.locators = LoginWebLocators;
+  }
 
-  // Actions
+  clickAccountList() {
+    cy.get(this.locators.accountList).click();
+  }
 
-  enterUsername = (username) => {
-    this.webLocators.username().type(username);
-  };
-  enterPassword = (password) => {
-    this.webLocators.password().type(password);
-  };
-  clickOnLoginButton = () => {
-    this.webLocators.loginButton().click();
-  };
+  enterUsername(user_name) {
+    cy.get(this.locators.username).type(user_name);
+  }
+
+  clickProceed() {
+    cy.get(this.locators.proceed).click();
+  }
+
+  enterPassword(password) {
+    cy.get(this.locators.password).type(password);
+  }
+
+  clickSubmit() {
+    cy.get(this.locators.submitBtn).should("be.visible").click();
+  }
 }
-export default new loginPage();
+
+export default LoginPage;
