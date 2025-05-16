@@ -1,5 +1,3 @@
-// cypress/support/locators/loginPageLocators.js
-
 export const LoginWebLocators = {
   accountList: "#nav-link-accountList",
   username: "input[type='email']",

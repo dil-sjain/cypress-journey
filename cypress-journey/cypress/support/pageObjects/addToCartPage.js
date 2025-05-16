@@ -1,8 +1,8 @@
-import { addCartPageLocators } from "../locators/addToCartPageLocator";
+import { addToCartPageLocators } from "../locators/addToCartPageLocator";
 
 class addCartPage {
   constructor() {
-    this.webLocators = addCartPageLocators;
+    this.webLocators = addToCartPageLocators;
   }
   AddToCart() {
     return this.webLocators.addToCart();

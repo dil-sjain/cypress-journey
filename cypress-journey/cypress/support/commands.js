@@ -11,7 +11,7 @@
 //     loginPage.clickSubmit();
 // });
 import LoginPage from "./pageObjects/loginPage";
-Cypress.Commands.add('loginInToApplication', (user_name, password) => {
+Cypress.Commands.add('loginInToApplication', (userName, password) => {
     //const loginPage = new LoginPage();
         const loginPage = new LoginPage();
 
@@ -24,7 +24,7 @@ Cypress.Commands.add('loginInToApplication', (user_name, password) => {
     loginPage.clickAccountList();
    // cy.log('Clicking on Account List');
     //cy.log('Entering mobile number', username);
-    loginPage.enterUsername(user_name);
+    loginPage.enterUsername(userName);
    // cy.log('enterUsername', username);
     loginPage.clickProceed();
     loginPage.enterPassword(password);
