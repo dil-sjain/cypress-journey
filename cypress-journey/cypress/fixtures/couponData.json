@@ -1,0 +1,29 @@
+{
+    "coupon1": {
+        "code": "SAVE10",
+        "success": true,
+        "discount": 10,
+        "discounted_price": 50000,
+        "message": "Coupon applied successfully"
+    },
+    "coupon2": {
+        "code": "INVALID",
+        "message": "Invalid coupon code"
+    },
+    "coupon3": {
+        "code": "EXPIRED",
+        "message": "Coupon has expired"
+    },
+    "coupon4": {
+        "code": "ALREADY_USED",
+        "message": "Coupon has already been used"
+    },
+    "coupon5": {
+        "code": "MINIMUM_PURCHASE",
+        "message": "Minimum purchase amount not met"
+    },
+    "coupon6": {
+        "code": "MAXIMUM_DISCOUNT",
+        "message": "Maximum discount limit reached"
+    }
+}

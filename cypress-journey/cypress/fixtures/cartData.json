@@ -1,0 +1,20 @@
+{
+    "items": [
+      {
+        "id": 1,
+        "name": "Apple iPhone 15 (128 GB) - Green",
+        "price": 61400,
+        "currency": "INR",
+        "description": "Description for Apple iPhone 15 (128 GB) - Green"
+      },
+      {
+        "id": 2,
+        "name": "Apple iPhone 15 Pro (256 GB) - Blue",
+        "price": 73400,
+        "currency": "INR",
+        "description": "Description for Apple iPhone 15 Pro (256 GB) - Blue"
+      }
+      
+    ],
+  "totalAmount": 79999
+  }
