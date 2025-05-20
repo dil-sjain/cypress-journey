@@ -11,7 +11,7 @@ const errorHandler = errorHelper;
 const { user_email, user_password } = Cypress.env();
 
 
-describe.skip('Assignment 1', () => {
+describe('Assignment 1', () => {
     let assignData;
     before(() => {
         cy.fixture('assignData.json').then((data) => {

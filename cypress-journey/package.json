@@ -8,10 +8,13 @@
     "open": "cypress open"
   },
   "dependencies": {
-    "cypress": "^12.0.0",
+    "cypress": "^12.17.4",
     "dotenv": "^16.5.0",
     "node": "^22.15.0"
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "cypress-dotenv": "^3.0.1"
+  }
 }
